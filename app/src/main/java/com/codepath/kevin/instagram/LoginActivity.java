@@ -53,8 +53,8 @@ public class LoginActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 loginUser(username,password);
-                createUser(username,password);
             }
+
         });
     }
 
@@ -67,12 +67,10 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void done(ParseUser user, ParseException e) {
                 if(e != null){
-                    // TODO: better error handling
                   Log.e(TAG, "Issue with login", e);
                   Toast.makeText(LoginActivity.this, "Issue with Login" , Toast.LENGTH_SHORT);
                   return;
                 }
-                //TODO: navigate to the main activity if the user has signed in properly
                 goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT);
 
@@ -102,8 +100,8 @@ public class LoginActivity extends AppCompatActivity {
                     // Sign up didn't succeed. Look at the ParseException
                     // to figure out what went wrong
                     // TODO: better error handling
-                    Log.e(TAG, "Issue with login", e);
-                    Toast.makeText(LoginActivity.this, "Issue with Login" , Toast.LENGTH_SHORT);
+                    Log.e(TAG, "Issue with sign up", e);
+                    Toast.makeText(LoginActivity.this, "Issue with sign up" , Toast.LENGTH_SHORT);
                 }
             }
         });
